@@ -68,13 +68,11 @@ module Telldus
     TELLSTICK_ERROR_COMMUNICATING_SERVICE = -10
     TELLSTICK_ERROR_UNKNOWN = -99
 
-
     callback :TDDeviceEvent, [:int, :int, :string, :int, :pointer], :void
     callback :TDDeviceChangeEvent, [:int, :int, :int, :int], :void
     callback :TDRawDeviceEvent, [:string, :int, :int], :void
     callback :TDSensorEvent, [:string, :string, :int, :int, :string, :int, :int, :pointer], :void
     callback :TDControllerEvent, [:int, :int, :int, :string, :int], :void
-
 
     attach_function :tdInit, [], :void  
     attach_function :tdRegisterDeviceEvent, [:TDDeviceEvent, :pointer], :int
