@@ -114,7 +114,7 @@ module Telldus
     attach_function :tdSendRawCommand, [:string, :int], :int
     attach_function :tdConnectTellStickController, [:int, :int, :string], :void
     attach_function :tdDisconnectTellStickController, [:int, :int, :string], :void
-    attach_function :tdSensor, [:string, :int, :string, :int, :int, :int], :int
+    attach_function :tdSensor, [:pointer, :int, :pointer, :int, :pointer, :pointer], :int
     attach_function :tdSensorValue, [:string, :string, :int, :int, :pointer, :int, :pointer], :int
     # attach_function :tdController, [:pointer, :pointer, :pointer, :int, :pointer], :int # Version 2.1.2
     # attach_function :tdControllerValue, [:int, :pointer, :pointer, :int], :int # Version 2.1.2
