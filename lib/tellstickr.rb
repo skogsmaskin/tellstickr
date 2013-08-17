@@ -1,0 +1,5 @@
+require_relative "./tellstickr/version"
+require_relative "./tellstickr/error"
+require_relative "./tellstickr/core"
+require_relative "./tellstickr/device"
+require_relative "./tellstickr/sensor"
