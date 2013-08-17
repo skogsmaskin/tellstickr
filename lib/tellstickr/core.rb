@@ -1,15 +1,17 @@
 require 'ffi'
 
-module Telldus
+module TellStickR
 
   class Core
 
-    extend FFI::Library
+    # FFI wrapper for the telldus-core C library.
+    # Versions vary of telldus-core API vary, so far version 2.1.0 is supported.
+    # Functions for version 2.1.2 are implemented, but commented out for now.
 
+    extend FFI::Library
     ffi_lib "telldus-core"
 
     # Device method flags
-
     TELLSTICK_TURNON = 1
     TELLSTICK_TURNOFF = 2
     TELLSTICK_BELL = 4
@@ -22,7 +24,6 @@ module Telldus
     TELLSTICK_STOP = 512
 
     # Device types
-
     TELLSTICK_TYPE_DEVICE = 1
     TELLSTICK_TYPE_GROUP = 2
     TELLSTICK_TYPE_SCENE = 3  
@@ -32,20 +33,17 @@ module Telldus
     TELLSTICK_HUMIDITY = 2
 
     #Controller type
-
     TELLSTICK_CONTROLLER_TELLSTICK = 1
     TELLSTICK_CONTROLLER_TELLSTICK_DUO = 2
     TELLSTICK_CONTROLLER_TELLSTICK_NET = 3
 
     # Device changes
-
     TELLSTICK_DEVICE_ADDED = 1
     TELLSTICK_DEVICE_CHANGED = 2
     TELLSTICK_DEVICE_REMOVED = 3
     TELLSTICK_DEVICE_STATE_CHANGED = 4
 
     # Change types
-
     TELLSTICK_CHANGE_NAME = 1
     TELLSTICK_CHANGE_PROTOCOL = 2
     TELLSTICK_CHANGE_MODEL = 3
@@ -54,7 +52,6 @@ module Telldus
     TELLSTICK_CHANGE_FIRMWARE = 6
 
     # Error codes
-
     TELLSTICK_SUCCESS = 0
     TELLSTICK_ERROR_NOT_FOUND = -1
     TELLSTICK_ERROR_PERMISSION_DENIED = -2
@@ -68,12 +65,14 @@ module Telldus
     TELLSTICK_ERROR_COMMUNICATING_SERVICE = -10
     TELLSTICK_ERROR_UNKNOWN = -99
 
+    # Callbacks
     callback :TDDeviceEvent, [:int, :int, :string, :int, :pointer], :void
     callback :TDDeviceChangeEvent, [:int, :int, :int, :int], :void
     callback :TDRawDeviceEvent, [:string, :int, :int], :void
     callback :TDSensorEvent, [:string, :string, :int, :int, :string, :int, :int, :pointer], :void
     callback :TDControllerEvent, [:int, :int, :int, :string, :int], :void
 
+    # Functions
     attach_function :tdInit, [], :void  
     attach_function :tdRegisterDeviceEvent, [:TDDeviceEvent, :pointer], :int
     attach_function :tdRegisterRawDeviceEvent, [:TDRawDeviceEvent, :pointer], :int
