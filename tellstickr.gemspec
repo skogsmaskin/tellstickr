@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = TellStickR::VERSION
   s.authors     = ["Per-Kristian Nordnes"]
   s.email       = ["per.kristian.nordnes@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/skogsmaskin/tellstickr"
   s.summary     = %q{Gem for communicating with the Telldus TellStick and TellStick Duo through the official telldus-core C library in Ruby.}
   s.description = %q{FFI wrapper for the telldus-core C library, and classes for easy communication with various devices and sensors.}
 
