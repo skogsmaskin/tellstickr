@@ -1,17 +1,17 @@
-# TellStick'R
+# TellStickR
 
-This is a gem for communicating with the Telldus TellStick and TellStick Duo through the official telldus-core C library via Ruby.
+This is a Gem for communicating with the Telldus TellStick and TellStick Duo through the official telldus-core C library in Ruby.
 
-It also includes device and sensor classes for easy communication via Ruby and Tellstick to your hardware.
+It also includes device and sensor helper classes for easy communication with various devices and sensors.
 
-If you didn't know, TellSticks are USB-stick radio frequency transmitters that plugs into your computer, and turns any computer into a wireless home automation center (switch on/off electronic devices, read values from various sensors).
+If you didn't know, TellSticks are USB radio frequency transmitters which turns any computer into a wireless home automation center (switch on/off electronic devices, read values from sensors, etc).
 
-So far version 2.1.0 of telldus-core library is supported.
+So far, version 2.1.0 of the telldus-core API is supported.
 
-If you would like to contribute to this code, you are more than welcome!
+If you would like to contribute to this code, you are more than welcome to do so!
 
-Happy hacking,
-skogsmaskin
+## Documentation
+For now, please have a look at the specs.
 
 ## Links
 
@@ -20,6 +20,7 @@ skogsmaskin
 
 ## Yos and tnx:
 
-- Virus84 for the nice telldus-core on Rasberry Pi guide (https://blogg.itslav.nu/?p=875) which inspired this project.
-- Hallvar Helleseth for leading me on to the Ruby FFI route.
-- Kristoffer Sivertsen for introducing me to Tellsticks in the first place.
+- Virus84 for the nice telldus-core on Rasberry Pi guide (https://blogg.itslav.nu/?p=875) which led to this project.
+- Hallvar Helleseth for pointing out the Ruby FFI route.
+- Kristoffer Sivertsen for introducing me to Tellsticks in the first place :)
+- Telldus for a awesome, cheap and trouble-free product!
