@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'tellstickr/core'
+
 describe TellStickR::Core do
   it 'has defined FFI-functions matching tellstick-core v. 2.1.0' do
     functions = [

@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'rspec'
+require 'tellstickr'
 
 SimpleCov.add_filter 'spec'
 SimpleCov.add_filter 'config'

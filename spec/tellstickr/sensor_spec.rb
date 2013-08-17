@@ -1,6 +1,5 @@
 require 'spec_helper'
-require 'tellstickr/core'
-require 'tellstickr/sensor'
+
 describe TellStickR::Sensor do
 
   let :sensor do
@@ -38,7 +37,7 @@ describe TellStickR::Sensor do
   end
 
   it 'can register callback functions which are callend when the sensor sends new values' do
-    sensor.register_callback(lambda{|data| puts data.inspect}).should eq 1
+    sensor.register_callback(lambda{|data| puts data.inspect}).class.should eq Fixnum
   end
 
   it 'can unregister a callback function from id' do
@@ -48,6 +47,5 @@ describe TellStickR::Sensor do
   it 'can unregister all callbacks' do
     sensor.unregister_callbacks.should == {}
   end
-
 
 end
