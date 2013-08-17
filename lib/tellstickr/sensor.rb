@@ -8,6 +8,7 @@ module TellStickR
       @protocol = protocol
       @model = model
       @id = id
+      @callback_functions = {}
       TellStickR::Core.tdInit
     end
 
@@ -23,6 +24,36 @@ module TellStickR
       time = FFI::MemoryPointer.new(:int, 2)
       TellStickR::Core.tdSensorValue(@protocol, @model, @id, TellStickR::Core::TELLSTICK_HUMIDITY, value, 4, time)
       {value: value.get_string(0,4).to_f, time: Time.at(time.get_int32(0))}
+    end
+
+    def register_callback(proc)
+      object_id  = FFI::MemoryPointer.new(:int32)
+      object_id.write_int32(self.object_id)
+      callback = Proc.new do |protocol, model, id, data_type, value, timestamp, callback_id, context|
+        sensor = ObjectSpace._id2ref(context.get_int32(0))
+        if id == sensor.id
+          sensor.callback_functions[callback_id].call({
+            kind: (data_type == TellStickR::Core::TELLSTICK_TEMPERATURE ? :temperature : :humidity),
+            value: value.to_f, time: Time.at(timestamp.to_i)
+          })
+        end
+      end
+      id = TellStickR::Core.tdRegisterSensorEvent(callback, object_id)
+      @callback_functions[id] = proc
+      id
+    end
+
+    def unregister_callback(id)
+      TellStickR::Core.tdUnregisterCallback(id)
+      @callback_functions.delete(id)
+    end
+
+    def unregister_callbacks
+      @callback_functions.each do |k,v|
+        TellStickR::Core.tdUnregisterCallback(k)
+        @callback_functions.delete(k)
+      end
+      @callback_functions
     end
 
     def self.discover

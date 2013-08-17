@@ -37,5 +37,17 @@ describe TellStickR::Sensor do
     lambda { TellStickR::Sensor.from_predefined(:wtf, 9)}.should raise_error
   end
 
+  it 'can register callback functions which are callend when the sensor sends new values' do
+    sensor.register_callback(lambda{|data| puts data.inspect}).should eq 1
+  end
+
+  it 'can unregister a callback function from id' do
+    sensor.unregister_callback(1).should be_nil
+  end
+
+  it 'can unregister all callbacks' do
+    sensor.unregister_callbacks.should == {}
+  end
+
 
 end
