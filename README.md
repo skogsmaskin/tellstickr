@@ -20,7 +20,7 @@ For now, please have a look at the specs.
 
 ## Yos and tnx:
 
-- Virus84 for the nice telldus-core on Rasberry Pi guide (https://blogg.itslav.nu/?p=875) which led to this project.
+- Virus84 for the nice telldus-core on Raspberry Pi guide (https://blogg.itslav.nu/?p=875) which led to this project.
 - Hallvar Helleseth for pointing out the Ruby FFI route.
 - Kristoffer Sivertsen for introducing me to Tellsticks in the first place :)
 - Telldus for a awesome, cheap and trouble-free product!

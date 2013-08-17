@@ -1,11 +1,11 @@
 require 'simplecov'
 require 'rspec'
-require 'tellstickr'
 
 SimpleCov.add_filter 'spec'
 SimpleCov.add_filter 'config'
 SimpleCov.start
 
+require 'tellstickr'
 
 RSpec.configure do |c|
   c.mock_with :rspec

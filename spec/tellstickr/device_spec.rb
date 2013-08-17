@@ -44,9 +44,9 @@ describe TellStickR::Device do
     TellStickR::Device.discover.first.model.should eq "selflearning-switch:nexa"
   end
 
-  it 'gives sane exceptions' do
+  it 'gives human readable exception messages' do
     allow(TellStickR::Core).to receive(:tdBell).and_return(TellStickR::Core::TELLSTICK_ERROR_METHOD_NOT_SUPPORTED)
-    lambda { device.bell }.should raise_error TellStickR::Error
+    lambda { device.bell }.should raise_error TellStickR::Error, "The requested method is not supported by the device (#{TellStickR::Core::TELLSTICK_ERROR_METHOD_NOT_SUPPORTED})"
   end
 
 end
