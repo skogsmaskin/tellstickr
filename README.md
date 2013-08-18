@@ -14,6 +14,7 @@ If you would like to contribute to this code, you are more than welcome to do so
 
 ### TellStickR::Core
 This is the binding to the telldus-core C library, with all functions and statics defined.
+Documentation on these can be found here: http://developer.telldus.se/doxygen/group__core.html
 
 ### TellStickR::Device
 Class for easy discovery and manipulation of devices.
@@ -52,7 +53,7 @@ sensor.unregister_callback(callback_id)
 sensor.unregister_callbacks
 
 # If you know the make and sensor id, you can do this
-# (as long as it's defined in TellStickR::Sensor::PREDEFINED_SENSORS:
+# (as long as it's defined in TellStickR::Sensor::PREDEFINED_SENSORS):
 sensor = TellStickR::Sensor.from_predefined(:wt450h, 11)
 ```
 
