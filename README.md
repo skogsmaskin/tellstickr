@@ -10,8 +10,47 @@ So far, version 2.1.0 of the telldus-core API is supported.
 
 If you would like to contribute to this code, you are more than welcome to do so!
 
-## Documentation
-For now, please have a look at the specs.
+## Code examples
+
+### TellStickR::Core
+This is the binding to the telldus-core C library, with all functions and statics defined.
+
+### TellStickR::Device
+Class for discovery and manipulation of devices.
+
+```
+devices = TellStickR::Device.discover
+device = devices.first
+device.on
+device.off
+device.bell
+```
+
+### TellStickR::Sensor
+Class for discovery and reading sensors.
+
+```
+sensors = TellStickR::Sensor.discover
+sensor = sensors.first
+
+# Poll temperature
+sensor.temperature
+
+# Poll humidity
+sensor.humidtity 
+
+# Register a callback that will be called when the sensor receives new data:
+callback_id = sensor.register_callback(lambda{|data| puts data.inspect})
+
+# Unregister a spesific callback:
+sensor.unregister_callback(callback_id)
+
+# Unregister all callbacks:
+sensor.unregister_callbacks
+
+# If you know the make and sensor id, you can do this (as long as it's defined in TellStickR::Sensor::PREDEFINED_SENSORS:
+sensor = TellStickR::Sensor.from_predefined(:wt450h, 11)
+```
 
 ## Links
 
