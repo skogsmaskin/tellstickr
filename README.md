@@ -10,6 +10,9 @@ So far, version 2.1.0 of the telldus-core API is supported.
 
 If you would like to contribute to this code, you are more than welcome to do so!
 
+## Installation
+```gem install tellstickr```
+
 ## Usage
 
 ### TellStickR::Core
