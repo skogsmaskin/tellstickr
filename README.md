@@ -10,24 +10,27 @@ So far, version 2.1.0 of the telldus-core API is supported.
 
 If you would like to contribute to this code, you are more than welcome to do so!
 
-## Code examples
+## Usage
 
 ### TellStickR::Core
 This is the binding to the telldus-core C library, with all functions and statics defined.
 
 ### TellStickR::Device
-Class for discovery and manipulation of devices.
+Class for easy discovery and manipulation of devices.
 
 ```
 devices = TellStickR::Device.discover
 device = devices.first
+# Turn it on
 device.on
+# Turn if off
 device.off
+# Make it ring (if supported)
 device.bell
 ```
 
 ### TellStickR::Sensor
-Class for discovery and reading sensors.
+Class for easy discovery and reading sensors.
 
 ```
 sensors = TellStickR::Sensor.discover
@@ -48,7 +51,8 @@ sensor.unregister_callback(callback_id)
 # Unregister all callbacks:
 sensor.unregister_callbacks
 
-# If you know the make and sensor id, you can do this (as long as it's defined in TellStickR::Sensor::PREDEFINED_SENSORS:
+# If you know the make and sensor id, you can do this
+# (as long as it's defined in TellStickR::Sensor::PREDEFINED_SENSORS:
 sensor = TellStickR::Sensor.from_predefined(:wt450h, 11)
 ```
 
