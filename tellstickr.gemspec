@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/skogsmaskin/tellstickr"
   s.summary     = %q{Gem for communicating with the Telldus TellStick and TellStick Duo through the official telldus-core C library in Ruby.}
   s.description = %q{FFI wrapper for the telldus-core C library, and classes for easy communication with various devices and sensors.}
-
+  s.license     = "MIT"
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]

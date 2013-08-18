@@ -68,3 +68,6 @@ sensor = TellStickR::Sensor.from_predefined(:wt450h, 11)
 - Hallvar Helleseth for pointing out the Ruby FFI route.
 - Kristoffer Sivertsen for introducing me to Tellsticks in the first place :)
 - Telldus for a awesome, cheap and trouble-free product!
+
+## Legal
+Copyright (c) 2013 Per-Kristian Nordnes. Released under the MIT license. See the file LICENSE.
