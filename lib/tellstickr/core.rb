@@ -85,7 +85,7 @@ module TellStickR
     attach_function :tdTurnOn, [:int], :int
     attach_function :tdTurnOff, [:int], :int
     attach_function :tdBell, [:int], :int
-    attach_function :tdDim, [:int], :int
+    attach_function :tdDim, [:int, :uint8], :int
     attach_function :tdExecute, [:int], :int
     attach_function :tdUp, [:int], :int
     attach_function :tdDown, [:int], :int
